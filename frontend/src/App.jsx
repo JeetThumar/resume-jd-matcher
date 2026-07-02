@@ -5,6 +5,7 @@ import ThreeBackground from './components/ThreeBackground'
 import UploadPanel from './components/UploadPanel'
 import ProcessingModule from './components/ProcessingModule'
 import ResultsPanel from './components/ResultsPanel'
+import { API_URL } from './config'
 
 function App() {
   const [appState, setAppState] = useState('upload') // upload | processing | results
@@ -23,7 +24,7 @@ function App() {
         formData.append('jd_file', payload.jdFile)
       }
 
-      const response = await axios.post('/analyze', formData, {
+      const response = await axios.post(`${API_URL}/analyze`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

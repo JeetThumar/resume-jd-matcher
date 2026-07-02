@@ -10,10 +10,14 @@ from resume_matcher.matcher import match_resume_to_jd
 
 app = FastAPI(title="Resume JD Matcher API")
 
-# Allow CORS for the Vite frontend
+# Allow CORS for the Vite frontend (local dev + Vercel production)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=[
+        "http://localhost:5173",           # local Vite dev server
+        "http://127.0.0.1:5173",           # local Vite (alternate)
+        "https://resume-jd-matcher.vercel.app",  # Vercel production frontend
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

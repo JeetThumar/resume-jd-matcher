@@ -64,6 +64,27 @@ npm run dev
 ```
 Frontend runs at `http://localhost:5173`
 
+---
+
+## Environment Variables
+
+### Backend (`backend/.env`) — **secret, never commit**
+
+| Variable | Required | Description |
+|---|---|---|
+| `GEMINI_API_KEY` | ✅ Yes | Google Gemini API key. Get one free at [aistudio.google.com](https://aistudio.google.com/app/apikey). **Set in the Render dashboard** for production — never hardcode. |
+
+### Frontend — **public URL only, no secrets**
+
+| Variable | Description | Dev value | Prod value |
+|---|---|---|---|
+| `VITE_API_URL` | Base URL of the FastAPI backend | `http://localhost:8000` | `https://resume-jd-matcher-e1mq.onrender.com` |
+
+In development: Vite reads `frontend/.env.development` automatically.  
+In production: set `VITE_API_URL` in the **Vercel dashboard** → Project Settings → Environment Variables.
+
+> ⚠️ Never put `GEMINI_API_KEY` or any secret in a `VITE_*` variable — Vite embeds those in the browser bundle.
+
 ## How it works
 
 1. Upload your resume (PDF) and paste/upload a job description
