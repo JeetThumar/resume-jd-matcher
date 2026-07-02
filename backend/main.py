@@ -16,7 +16,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",           # local Vite dev server
         "http://127.0.0.1:5173",           # local Vite (alternate)
-        "https://resume-jd-matcher.vercel.app",  # Vercel production frontend
+        "https://resume-jd-matcher-snowy.vercel.app",  # Vercel production frontend
     ],
     allow_credentials=True,
     allow_methods=["*"],
